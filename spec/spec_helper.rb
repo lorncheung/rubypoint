@@ -1,6 +1,6 @@
 require 'rubygems'
-require 'spec'
-require 'lib/rubypoint'
+require 'bundler/setup'
+require 'rubypoint'
 
 class RubyPoint
   def self.working_directory
@@ -8,7 +8,7 @@ class RubyPoint
   end
 end
 
-Spec::Runner.configure do |config|
+RSpec.configure do |config|
 
   def doc_from(object)
     Hpricot::XML(File.open(object.file_path).read)

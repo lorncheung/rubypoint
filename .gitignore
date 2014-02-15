@@ -7,3 +7,4 @@ bin/*
 base/*
 example.rb
 rubypoint.tmproj
+spec/tmp/*
