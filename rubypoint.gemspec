@@ -32,4 +32,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<zipruby>, [">= 0.3.2"])
     s.add_dependency(%q<hpricot>, [">= 0.8.1"])
   end
+
+  s.add_dependency "ftools"
+  s.add_development_dependency "rspec"
 end

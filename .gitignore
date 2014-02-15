@@ -2,6 +2,8 @@
 working
 tmp/*
 test/*
+bin/*
+.bundle/*
 base/*
 example.rb
 rubypoint.tmproj
