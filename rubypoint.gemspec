@@ -33,6 +33,8 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<hpricot>, [">= 0.8.1"])
   end
 
+  s.add_dependency "rake"
   s.add_dependency "ftools"
+  s.add_dependency "xml-simple"
   s.add_development_dependency "rspec"
 end
