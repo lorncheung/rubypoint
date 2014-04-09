@@ -16,12 +16,17 @@ class RubyPoint
     system("mkdir #{save_path}")
     system("cp #{file_path} #{tmp_file}")
     system("unzip -q #{tmp_file} -d #{save_path}/")
-    system(%q{find . -name "*.xml" -o -name "*.rels" -type f -exec xmllint --output '{}' --format '{}' \;})
+    system(%q{find . -name "*.rels" -type f -exec xmllint --output '{}' --format '{}' \;})
+    system(%q{find . -name "*.xml" -type f -exec xmllint --output '{}' --format '{}' \;})
     system(%q{find . -name "\[Content_Types\].xml" -type f -exec xmllint --output '{}' --format '{}' \;})
     system("rm #{tmp_file}")
   end
   
   def self.compress_folder(folder_path, file_path)
+    system(%q{find #{folder_path} -name "*.rels" -type f -exec xmllint --output '{}' --noblanks '{}' \;})
+    system(%q{find #{folder_path} -name "*.xml" -type f -exec xmllint --output '{}' --noblanks '{}' \;})
+    system(%q{find #{folder_path} -name "\[Content_Types\].xml" -type f -exec xmllint --noblanks '{}' --format '{}' \;})
+    
     Zip::Archive.open(file_path, Zip::CREATE) do |zip_file|
       Dir.glob("#{folder_path}/**/*", ::File::FNM_DOTMATCH).each do |path|
         zip_path = path.gsub("#{folder_path}/","")
