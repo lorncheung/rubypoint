@@ -23,9 +23,9 @@ class RubyPoint
   end
   
   def self.compress_folder(folder_path, file_path)
-    system(%q{find #{folder_path} -name "*.rels" -type f -exec xmllint --output '{}' --noblanks '{}' \;})
-    system(%q{find #{folder_path} -name "*.xml" -type f -exec xmllint --output '{}' --noblanks '{}' \;})
-    system(%q{find #{folder_path} -name "\[Content_Types\].xml" -type f -exec xmllint --noblanks '{}' --format '{}' \;})
+    # system(%Q{find #{folder_path} -name "*.rels" -type f -exec xmllint --output '{}' --noblanks '{}'' \;})
+    # system(%Q{find #{folder_path} -name "*.xml" -type f -exec xmllint --output '{}' --noblanks '{}' \;})
+    # system(%Q{find #{folder_path} -name "\[Content_Types\].xml" -type f -exec xmllint --noblanks '{}' --format '{}' \;})
     
     Zip::Archive.open(file_path, Zip::CREATE) do |zip_file|
       Dir.glob("#{folder_path}/**/*", ::File::FNM_DOTMATCH).each do |path|
