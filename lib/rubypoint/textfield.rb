@@ -10,10 +10,38 @@ class RubyPoint::TextField < RubyPoint::Element
   def write
     @parent.doc.search('//p:spTree').append(self.raw)
   end
-  
+
   def raw
     raw = <<EOF 
-<p:sp><p:nvSpPr><p:cNvPr id="#{self.object_id}" name="TextBox #{self.object_id}"/><p:cNvSpPr txBox="1"/><p:nvPr/></p:nvSpPr><p:spPr><a:xfrm><a:off x="#{self.x}" y="#{self.y}"/><a:ext cx="#{self.width}" cy="#{self.height}"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom><a:noFill/></p:spPr><p:txBody><a:bodyPr wrap="square" rtlCol="0"><a:spAutoFit/></a:bodyPr><a:lstStyle/><a:p><a:r><a:rPr lang="en-US" dirty="0" smtClean="0"/><a:t>#{self.text}</a:t></a:r></a:p></p:txBody></p:sp>
+<p:sp>
+  <p:nvSpPr>
+    <p:cNvPr id="#{self.xml_id}" name="TextBox #{self.xml_id}"/>
+    <p:cNvSpPr txBox="1"/>
+    <p:nvPr/>
+  </p:nvSpPr>
+  <p:spPr>
+    <a:xfrm>
+      <a:off x="#{self.x}" y="#{self.y}"/>
+      <a:ext cx="#{self.width}" cy="#{self.height}"/>
+    </a:xfrm>
+    <a:prstGeom prst="rect">
+      <a:avLst/>
+    </a:prstGeom>
+    <a:noFill/>
+  </p:spPr>
+  <p:txBody>
+    <a:bodyPr wrap="square" rtlCol="0">
+      <a:spAutoFit/>
+    </a:bodyPr>
+    <a:lstStyle/>
+    <a:p>
+      <a:r>
+        <a:rPr lang="en-US" dirty="0" smtClean="0"/>
+        <a:t>#{self.text}</a:t>
+      </a:r>
+    </a:p>
+  </p:txBody>
+</p:sp>
 EOF
   end
 end
