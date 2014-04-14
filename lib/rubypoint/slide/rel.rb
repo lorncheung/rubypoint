@@ -2,8 +2,8 @@ class RubyPoint::Slide::Rel < RubyPoint::File
   
   def initialize(slide)
     @parent = slide
-    @presenation = slide.presentation
-    @file_path = @presenation.slide_directory + "/_rels/slide#{@parent.slide_id}.xml.rels"
+    @presentation = slide.presentation
+    @file_path = @presentation.slide_directory + "/_rels/slide#{@parent.slide_id}.xml.rels"
     @doc = Hpricot::XML(self.raw_xml)
   end
   
