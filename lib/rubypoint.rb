@@ -27,6 +27,8 @@ class RubyPoint
     # system(%Q{find #{folder_path} -name "*.xml" -type f -exec xmllint --output '{}' --noblanks '{}' \;})
     # system(%Q{find #{folder_path} -name "\[Content_Types\].xml" -type f -exec xmllint --noblanks '{}' --format '{}' \;})
     
+    system("rm #{file_path}") if ::File.exists?(file_path)
+
     Zip::Archive.open(file_path, Zip::CREATE) do |zip_file|
       Dir.glob("#{folder_path}/**/*", ::File::FNM_DOTMATCH).each do |path|
         zip_path = path.gsub("#{folder_path}/","")
@@ -46,9 +48,9 @@ class RubyPoint
   
   def self.diff(doc1, doc2)
     doc_id = Time.now.to_i
-    open_doc(doc1, "tmp/TEST#{doc_id}_1")
-    open_doc(doc2, "tmp/BASE#{doc_id}_2")
-    `opendiff tmp/TEST#{doc_id}_1 tmp/BASE#{doc_id}_2`
+    open_doc(doc1, "tmp/FIRST#{doc_id}_1")
+    open_doc(doc2, "tmp/SECOND#{doc_id}_2")
+    `opendiff tmp/FIRST#{doc_id}_1 tmp/SECOND#{doc_id}_2`
   end
   
   def self.show(doc1, doc2, path)
