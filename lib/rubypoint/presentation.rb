@@ -81,7 +81,11 @@ class RubyPoint
     def slide_directory
       file_directory + '/ppt/slides'
     end
-  
+
+    def media_directory
+      file_directory + '/ppt/media'
+    end
+
     def file_directory
       "#{@working_directory}#{@uuid}"
     end

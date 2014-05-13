@@ -5,13 +5,13 @@ Gem::Specification.new do |s|
   s.version = "0.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["James Pozdena"]
+  s.authors = ["James Pozdena, Loren Cheung"]
   s.autorequire = %q{rubypoint}
   s.date = %q{2009-10-17}
   s.description = %q{Make pptx files with Ruby.}
   s.email = %q{jpoz@jpoz.net}
   s.extra_rdoc_files = ["GPL-LICENSE"]
-  s.files = ["GPL-LICENSE", "README.textile", "Rakefile", "lib/rubypoint", "lib/rubypoint/content_types_xml.rb", "lib/rubypoint/core.rb", "lib/rubypoint/docProps", "lib/rubypoint/docProps/app.rb", "lib/rubypoint/element.rb", "lib/rubypoint/file.rb", "lib/rubypoint/ppt", "lib/rubypoint/ppt/presentation.rb", "lib/rubypoint/ppt/rels", "lib/rubypoint/ppt/rels/presentation_rel.rb", "lib/rubypoint/presentation.rb", "lib/rubypoint/relationship.rb", "lib/rubypoint/slide", "lib/rubypoint/slide/rel.rb", "lib/rubypoint/slide/slide.rb", "lib/rubypoint/textfield.rb", "lib/rubypoint.rb"]
+  s.files = ["GPL-LICENSE", "README.textile", "Rakefile", "lib/rubypoint", "lib/rubypoint/content_types_xml.rb", "lib/rubypoint/core.rb", "lib/rubypoint/docProps", "lib/rubypoint/docProps/app.rb", "lib/rubypoint/element.rb", "lib/rubypoint/file.rb", "lib/rubypoint/ppt", "lib/rubypoint/ppt/presentation.rb", "lib/rubypoint/ppt/rels", "lib/rubypoint/ppt/rels/presentation_rel.rb", "lib/rubypoint/presentation.rb", "lib/rubypoint/relationship.rb", "lib/rubypoint/slide", "lib/rubypoint/slide/rel.rb", "lib/rubypoint/slide/slide.rb", "lib/rubypoint/textfield.rb", "lib/rubypoint/imagefield.rb", "lib/rubypoint.rb"]
   s.homepage = %q{http://github.com/jpoz/rubypoint}
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.5}
@@ -33,6 +33,8 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<hpricot>, [">= 0.8.1"])
   end
 
+  s.add_dependency "rake"
   s.add_dependency "ftools"
+  s.add_dependency "xml-simple"
   s.add_development_dependency "rspec"
 end

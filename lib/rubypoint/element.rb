@@ -29,5 +29,8 @@ EOF
       @objects ||= []
     end
     
+    def xml_id
+      self.object_id%2000000000  # range of int values that will not break compatibility, just needs to be unique 
+    end
   end
 end
