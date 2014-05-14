@@ -63,9 +63,6 @@ describe RubyPoint::Slide do
         pending
       end
     end
-
-    content "saving presentation with two slides" do
-    end
   end
 end
 

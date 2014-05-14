@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rubypoint (0.0.1)
+    rubypoint (0.0.2)
       ftools
       hpricot (>= 0.8.1)
       rake
