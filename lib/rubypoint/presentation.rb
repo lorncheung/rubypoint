@@ -13,10 +13,11 @@ class RubyPoint
     end
   
     def open(path)
+      filename = path.split('/').last
       system("mkdir #{file_directory}")
-      system("cp #{path} #{@working_directory}#{@uuid}/#{path}")
-      system("unzip -q #{@working_directory}#{@uuid}/#{path} -d #{@working_directory}#{@uuid}/")
-      system("rm #{@working_directory}#{@uuid}/#{path}")
+      system("cp #{path} #{@working_directory}#{@uuid}/#{filename}")
+      system("unzip -q #{@working_directory}#{@uuid}/#{filename} -d #{@working_directory}#{@uuid}/")
+      system("rm #{@working_directory}#{@uuid}/#{filename}")
       @files = Dir.glob("#{@working_directory}#{@uuid}/**/*", ::File::FNM_DOTMATCH)
     end
   
@@ -89,5 +90,6 @@ class RubyPoint
     def file_directory
       "#{@working_directory}#{@uuid}"
     end
+
   end
 end
